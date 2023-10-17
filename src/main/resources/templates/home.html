@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://wwww.thymeleaf.com">
+<html xmlns:th="http://wwww.thymeleaf.com" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,11 @@
 <body>
 <div class="container">
     <h1>News</h1>
+    <button class="btn btn-success float-right">Create News</button>
     <div class="row">
         <div class="col-md-12">
             <div th:each="news:${news}" class="list-group">
-                <form  th:action="@{/news/edit/__${news.id}__}" method="POST">
+                <form  th:action="@{/home/edit/__${news.id}__}" method="get">
                 <h3 th:text="${news.title}"></h3>
                 <p th:text="${news.body}"></p>
                 <button type="submit" class="btn btn-primary">Edit</button>

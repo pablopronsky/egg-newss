@@ -34,4 +34,17 @@ public class HomeController {
         model.addAttribute("news", newsService.getOne(id));
         return "admin_panel.html";
     }
+
+    @PostMapping("/edit/{id}")
+    public String edit(ModelMap model, @PathVariable String id, String title, String body, boolean isActive) throws Exception {
+        News news = newsService.getOne(Long.valueOf(id));
+
+        try{
+            newsService.update(Long.valueOf(id), title, body, isActive);
+            return "redirect:/home/news";
+        }catch (Exception e){
+            return "admin_panel.html";
+        }
+
+    }
 }
