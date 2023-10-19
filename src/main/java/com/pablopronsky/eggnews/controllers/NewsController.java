@@ -26,10 +26,10 @@ public class NewsController {
         try{
             newsService.createNews(title, body);
             model.put("success","News creted succesfully");
+            return "redirect:/home/news";
         }catch (Exception e){
             model.put("error", e.getMessage());
             return "news.html";
         }
-        return "home.html";
     }
 }

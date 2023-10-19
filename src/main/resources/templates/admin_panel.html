@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">Edit news</h1>
-
+    <h1 class="text-center">EDIT NEWS</h1>
+    <a class="btn btn-secondary mb-4" href="http://localhost:8080/home/news">HOME</a>
     <form th:action="@{/home/edit/__${id}__}" method="POST">
         <div class="form-group">
-            <label for="title"> EDIT NEWS TITLE</label>
+            <label for="title" class="text-md-center">EDIT NEWS TITLE</label>
             <input th:value="${news.title}" type="text" class="form-control mb-3" id="title" name="title">
         </div>
         <div class="form-group">
