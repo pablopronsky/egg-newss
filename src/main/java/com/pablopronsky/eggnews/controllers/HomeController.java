@@ -5,10 +5,7 @@ import com.pablopronsky.eggnews.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,6 +42,15 @@ public class HomeController {
         }catch (Exception e){
             return "admin_panel.html";
         }
+    }
 
+    @PostMapping("/delete/{id}")
+    public String deleteNews(@PathVariable Long id) {
+        try {
+            newsService.deleteNews(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:/home/news";
     }
 }

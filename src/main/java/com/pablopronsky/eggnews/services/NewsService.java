@@ -45,6 +45,7 @@ public class NewsService {
     public News getOne(Long id){
         return newsRepository.getReferenceById(id);
     }
+
     @Transactional
     public News update(Long id, String title, String body, boolean isActive) throws Exception{
         validate(title, body);
@@ -57,7 +58,6 @@ public class NewsService {
             news.setBody(body);
             news.setActive(isActive);
             news.setDate(new Date());
-
             newsRepository.save(news);
         }
 
@@ -68,16 +68,9 @@ public class NewsService {
         }
     }
     @Transactional
-    public void deleteNews(Long id, String title, String body) throws Exception {
-        validate(title, body);
-        News news = new News();
+    public void deleteNews(Long id) throws Exception {
         Optional<News> newsOptional = newsRepository.findById(id);
-
-        if (newsOptional.isPresent()){
-            news = newsOptional.get();
-            news.setActive(false);
-            newsRepository.delete(news);
-        }
+        if (newsOptional.isPresent()) newsRepository.deleteById(id);
     }
 
     public void validate(String title, String body) throws Exception{
