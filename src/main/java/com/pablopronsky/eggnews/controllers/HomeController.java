@@ -44,7 +44,7 @@ public class HomeController {
         }
     }
 
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteNews(@PathVariable Long id) {
         try {
             newsService.deleteNews(id);
@@ -52,5 +52,11 @@ public class HomeController {
             System.out.println(e.getMessage());
         }
         return "redirect:/home/news";
+    }
+
+    @GetMapping("/readmore/{id}")
+    public String readMore(@PathVariable String id, ModelMap model){
+        model.put("news", newsService.getOne((Long.valueOf(id))));
+        return "read_more.html";
     }
 }

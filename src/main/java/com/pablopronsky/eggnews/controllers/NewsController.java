@@ -23,6 +23,7 @@ public class NewsController {
 
     @PostMapping("/created")
     public String createdNews(@RequestParam(required = false) String title, @RequestParam(required = false) String body, ModelMap model) throws Exception{
+        System.out.println("asdasd");
         try{
             newsService.createNews(title, body);
             model.put("success","News creted succesfully");

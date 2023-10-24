@@ -17,30 +17,19 @@
             height: 100%;
         }
 
-        .card-text {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
+
     </style>
 </head>
 <body>
 <div class="container text-md-start">
     <h1 class="text-center fs-1">News</h1>
-    <a href="http://localhost:8080/news/create" target="_blank" class="btn btn-outline-secondary d-flex justify-content-center mb-4">Create News</a>
+    <a th:href="@{/home/news}" target="_blank" class="btn btn-outline-secondary d-flex justify-content-center mb-4">HOME</a>
     <div class="row">
-        <div th:each="news, iterStat : ${news}" class="col-md-4 mb-4">
+        <div class="col-md-12 mb-12">
             <div class="card h-100">
                 <div class="card-body" >
                     <h4 th:text="${news.title}" class="text-black text-info-emphasis"></h4>
-                    <p th:text="${#strings.substring(news.body, 0, 100)}" class="card-text" th:id="${news.id}"></p>
-                    <a th:href="@{/home/readmore/__${news.id}__}" th:onclick="{'alert(${news.id})'}">Read more...</a>
-                    <form th:action="@{/home/edit/__${news.id}__}" method="get">
-                        <button type="submit" class="btn btn-outline-dark btn-lg">EDIT</button>
-                        <a th:href="@{/home/delete/__${news.id}__}" class="btn btn-danger" onclick="return confirm('Are you sure?')">DELETE</a>
-                    </form>
+                    <p th:text="${news.body}" class="card-text" th:id="${news.id}"></p>
                 </div>
             </div>
         </div>
