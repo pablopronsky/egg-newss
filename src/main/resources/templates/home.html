@@ -28,18 +28,18 @@
 </head>
 <body>
 <div class="container text-md-start">
-    <h1 class="text-center fs-1">News</h1>
-    <a href="http://localhost:8080/news/create" target="_blank" class="btn btn-outline-secondary d-flex justify-content-center mb-4">Create News</a>
+    <h1 class="text-center fs-1 m-4">News</h1>
+    <a href="http://localhost:8080/news/create" target="_blank" class="btn btn-outline-primary d-flex justify-content-center mb-4">Create News</a>
     <div class="row">
         <div th:each="news, iterStat : ${news}" class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body" >
                     <h4 th:text="${news.title}" class="text-black text-info-emphasis"></h4>
-                    <p th:text="${#strings.substring(news.body, 0, 100)}" class="card-text" th:id="${news.id}"></p>
-                    <a th:href="@{/home/readmore/__${news.id}__}" th:onclick="{'alert(${news.id})'}">Read more...</a>
+                    <p th:text="${#strings.substring(news.body, 0, 200)}" class="card-text" th:id="${news.id}"></p>
+                    <a th:href="@{/home/readmore/__${news.id}__}" th:onclick="{'alert(${news.id})'}" class="link-secondary mb-4">Read more</a>
                     <form th:action="@{/home/edit/__${news.id}__}" method="get">
-                        <button type="submit" class="btn btn-outline-dark btn-lg">EDIT</button>
-                        <a th:href="@{/home/delete/__${news.id}__}" class="btn btn-danger" onclick="return confirm('Are you sure?')">DELETE</a>
+                        <button type="submit" class="btn btn-outline-dark btn-sm">EDIT</button>
+                        <a th:href="@{/home/delete/__${news.id}__}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">DELETE</a>
                     </form>
                 </div>
             </div>

@@ -73,7 +73,7 @@ public class NewsService {
         if (newsOptional.isPresent()) newsRepository.deleteById(id);
     }
 
-    public void validate(String title, String body) throws Exception{
+    private void validate(String title, String body) throws Exception{
         if(title == null || title.isEmpty())throw new Exception("Error, the title must be filled");
         if(body == null || body.isEmpty())throw new Exception("Error, the body must be filled");
     }
