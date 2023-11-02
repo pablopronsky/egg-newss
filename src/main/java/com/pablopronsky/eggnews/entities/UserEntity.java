@@ -4,7 +4,7 @@ import com.pablopronsky.eggnews.enums.Role;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,16 +13,10 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToOne
+    private Image image;
 
-    public User(Long id, String name, String email, String password, Role role) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-    public User() {
+    public UserEntity() {
     }
 
     public Long getId() {
@@ -63,5 +57,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
