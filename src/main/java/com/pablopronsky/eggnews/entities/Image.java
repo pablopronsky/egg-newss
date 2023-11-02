@@ -10,6 +10,7 @@ public class Image {
     private String mime;
     private String name;
     @Lob @Basic(fetch = FetchType.LAZY)
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] content;
 
     public Image() {

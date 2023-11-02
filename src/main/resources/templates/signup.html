@@ -6,11 +6,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container-fluid m-5 contenedor">
-        <h1 th:text="${success}"></h1>
-        <h1 th:text="${error}"></h1>
-        <form class="form" th:action="@{/home/register}" method="POST" enctype="multipart/form-data">
-
+    <div class="card text-center container-fluid m-5 w-25">
+        <form th:action="@{/home/register}" method="POST" enctype="multipart/form-data">
 
             <div class="form-group my-3">
                 <h3 class="card-title">SIGNUP!</h3>
@@ -33,8 +30,7 @@
                 <input type="password" class="form-control" name="password2" placeholder="REPEAT PASSWORD" th:value="${password2}">
             </div>
 
-
-            <button type="submit" class="btn btn-primary mt-3 botones">REGISTER</button>
+            <button type="submit" class="btn btn-primary my-3 botones">REGISTER</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

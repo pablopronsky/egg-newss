@@ -20,8 +20,9 @@ public class HomeController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/")
     public String index() {
-        return "home.html";
+        return "index.html";
     }
 
     @GetMapping("/news")
