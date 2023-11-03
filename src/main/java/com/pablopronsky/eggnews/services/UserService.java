@@ -77,7 +77,7 @@ public class UserService implements UserDetailsService {
 
         if(user != null){
             List<GrantedAuthority> permissions = new ArrayList<>();
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE" + user.getRole().toString());
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" + user.getRole().toString());
             permissions.add(grantedAuthority);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();

@@ -3,55 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>EGG NEWS</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 <header class="flex-header">
-    <h1 class="text-center fs-1 fw-bold font-sans my-5">WELCOME TO EGG NEWS</h1>
-    <h2 class="text-center fs-2 fw-bold font-sans">SELECT WHAT FITS BEST FOR YOU</h2>
+    <h1 class="text-center fs-2 fw-bold font-sans shadow-sm">WELCOME TO EGG NEWS</h1>
+    <h2 class="text-center fs-2 fw-bold font-sans shadow-sm">SELECT WHAT FITS BEST FOR YOU</h2>
 </header>
-<div class="container">
-    <div class="card text-center mx-2 mb-5 mt-5">
-        <div class="card-header">
-            LOGIN WITH YOUR ACCOUNT
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">LOGIN</h5>
-            <p class="card-text">IF YOU ALREADY HAVE AN USER AND PASSWORD.</p>
-            <a th:href="@{/home/login}" class="btn btn-primary">GO</a>
-        </div>
-        <div class="card-footer text-muted">
-
-        </div>
+    <div class="container d-flex justify-content-center align-items-center border-">
+        <a th:href="@{/home/signup}" class="btn btn-primary me-3">SIGNUP</a>
+        <a th:href="@{/home/login}" class="btn btn-secondary me-3">LOGIN</a>
+        <a th:href="@{/logout}" class="btn btn-danger">GUEST</a>
     </div>
-    <div class="card text-center mx-2 mb-5">
-        <div class="card-header">
-            SIGN UP FOR FREE
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">SIGNUP</h5>
-            <p class="card-text">IF YOU WANT TO CREATE YOUR USER AND PASSWORD</p>
-            <a th:href="@{/home/signup}" class="btn btn-primary">GO</a>
-        </div>
-        <div class="card-footer text-muted">
-
-        </div>
-    </div>
-    <div class="card text-center mx-2">
-        <div class="card-header">
-            CASUAL READER
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">GUEST</h5>
-            <p class="card-text">TAKE A PEEK</p>
-            <a th:href="@{/home/news}" class="btn btn-primary">GO</a>
-        </div>
-        <div class="card-footer text-muted">
-
-        </div>
-    </div>
-
-</div>
+<footer>made by diego y jona</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
